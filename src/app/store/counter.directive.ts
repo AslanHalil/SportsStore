@@ -1,9 +1,8 @@
-import {
-  Directive, ViewContainerRef, TemplateRef, Input, SimpleChanges
-} from "@angular/core";
+import {Directive, Input, SimpleChanges, TemplateRef, ViewContainerRef} from "@angular/core";
 
 @Directive({
-  selector: "[counterOf]"
+    selector: "[counterOf]",
+    standalone: true
 })
 export class CounterDirective {
   constructor(private container: ViewContainerRef,

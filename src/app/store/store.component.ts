@@ -1,10 +1,15 @@
 import {Component, Signal, computed, signal} from "@angular/core";
 import {Product} from "../model/product.model";
 import {ProductRepository} from "../model/product.repository";
+import { CounterDirective } from "./counter.directive";
+import { FormsModule } from "@angular/forms";
+import { NgFor, CurrencyPipe } from "@angular/common";
 
 @Component({
-  selector: "store",
-  templateUrl: "store.component.html"
+    selector: "store",
+    templateUrl: "store.component.html",
+    standalone: true,
+    imports: [NgFor, FormsModule, CounterDirective, CurrencyPipe]
 })
 export class StoreComponent {
   products: Signal<Product[]>;
