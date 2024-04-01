@@ -24,15 +24,16 @@ export class Cart {
   }
 
   addLine(product: Product, quantity: number = 1) {
-    this.linesSignal.update(linesArray => {
-      let line = linesArray.find(l => l.product.id == product.id);
-      if (line != undefined) {
-        line.quantity += quantity;
-      } else {
-        linesArray.push(new CartLine(product, quantity));
-      }
-      return linesArray;
-    });
+    // this.linesSignal.update(linesArray => {
+    //   let line = linesArray.find(l => l.product.id == product.id);
+    //   if (line != undefined) {
+    //     line.quantity += quantity;
+    //   } else {
+    //     linesArray.push(new CartLine(product, quantity));
+    //   }
+    //   return linesArray;
+    // });
+    this.linesSignal.update(linesArray => [...linesArray, new CartLine(product, quantity)]);
   }
 
   updateQuantity(product: Product, quantity: number) {
